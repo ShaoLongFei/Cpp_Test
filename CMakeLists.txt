@@ -3,7 +3,10 @@ project(C___Test)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(C___Test hello_world.cpp)
+include_directories(/opt/homebrew/Cellar/ffmpeg/6.0/include/)
+link_directories(/opt/homebrew/Cellar/ffmpeg/6.0/lib/)
+
+add_executable(hello hello_world.cpp)
 add_executable(test_001 1-10/test_001.cpp)
 add_executable(test_002 1-10/test_002.cpp)
 add_executable(test_003 1-10/test_003.cpp)
@@ -31,3 +34,24 @@ add_executable(array_init book_3/array_init.cpp)
 add_executable(operator book_4/operator.cpp)
 add_executable(brackets book_5/brackets.cpp)
 add_executable(switch book_5/switch.cpp)
+add_executable(erase test/erase.cpp)
+add_executable(Test bytequeue/Test.cpp bytequeue/ByteQueue.cpp)
+
+add_executable(C___Test1 multi-audio-mix/AudioResampler.cpp)
+add_executable(C___Test3 multi-audio-mix/resampler.cpp)
+add_executable(C___Test multi-audio-mix/resampler2.cpp)
+
+add_executable(C___Test4 multi-audio-mix/MultiAudioMixManager.cpp)
+
+target_link_libraries(
+        C___Test
+        avcodec
+        avdevice
+        avfilter
+        avformat
+        avresample
+        avutil
+        postproc
+        swresample
+        swscale
+)
